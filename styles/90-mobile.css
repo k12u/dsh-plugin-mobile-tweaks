@@ -1,0 +1,36 @@
+/*
+ * dsh-plugin-mobile-tweaks — layer 90 (mobile overrides)
+ *
+ * Rules here load last in <head>, so they win same-specificity ties against
+ * the shell's own stylesheets. Keep every rule either mobile-scoped with a
+ * media query or provably harmless on desktop.
+ *
+ * The block below is the only active rule; the catalog underneath is the
+ * working list for the next iterations (uncomment one at a time and reload).
+ */
+
+@media (max-width: 820px) {
+	/* Stop iOS/Android from re-inflating text when the device rotates. */
+	html {
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Candidate tweaks — uncomment and verify on a real device.
+ *
+ * @media (max-width: 820px) {
+ *   // Momentum scrolling must not chain into the browser's pull-to-refresh.
+ *   body { overscroll-behavior-y: none; }
+ *
+ *   // Let the composer/sheet clear the home indicator and the notch.
+ *   :root { --dsh-mt-safe-bottom: env(safe-area-inset-bottom, 0px); }
+ *
+ *   // Keep 16px inputs so iOS Safari does not zoom on focus.
+ *   input, textarea, select, [contenteditable="true"] { font-size: 16px; }
+ *
+ *   // Comfortable touch targets for icon buttons.
+ *   button, [role="button"] { min-height: var(--dsh-mt-tap); }
+ * }
+ * ------------------------------------------------------------------------- */

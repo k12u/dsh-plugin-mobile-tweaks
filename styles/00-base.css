@@ -1,0 +1,31 @@
+/*
+ * dsh-plugin-mobile-tweaks — layer 00 (base)
+ *
+ * This file is intentionally additive: it only defines custom properties, so
+ * it cannot change layout on its own. Later files (and any quick override you
+ * paste in) can use these names.
+ *
+ * Load order = file name order. Use numeric prefixes: 00-base, 10-..., 90-... .
+ * Sources are read on every index render, so an edit is live on the next page
+ * reload — no rebuild and no host restart.
+ */
+
+:root {
+	/* Safe-area insets with a 0 fallback for browsers without notch support. */
+	--dsh-mt-safe-top: env(safe-area-inset-top, 0px);
+	--dsh-mt-safe-right: env(safe-area-inset-right, 0px);
+	--dsh-mt-safe-bottom: env(safe-area-inset-bottom, 0px);
+	--dsh-mt-safe-left: env(safe-area-inset-left, 0px);
+
+	/* Viewport height that follows the mobile URL bar; 100dvh where available. */
+	--dsh-mt-vh: 100vh;
+
+	/* Smallest comfortable touch target. */
+	--dsh-mt-tap: 44px;
+}
+
+@supports (height: 100dvh) {
+	:root {
+		--dsh-mt-vh: 100dvh;
+	}
+}

@@ -1,0 +1,34 @@
+{
+  "name": "dsh-plugin-mobile-tweaks",
+  "description": "Maintainable monkey patch for the DeepSeek Harness Web GUI: injects styles/*.css into every served index.html and runs small DOM behavior patches in the browser",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./inject": "./lib/inject.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "lib/inject.js",
+    "styles",
+    "scripts",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "status": "node scripts/status.mjs",
+    "wire": "node scripts/install.mjs"
+  },
+  "license": "MIT"
+}
